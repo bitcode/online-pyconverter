@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Upload HEIC Images</h2>
+
+<form action="/convert" method="post" enctype="multipart/form-data">
+  Select images to upload:
+  <input type="file" name="file" id="file" multiple onchange="displaySelectedFiles()">
+  <input type="submit" value="Upload Images" name="submit">
+</form>
+
+<div id="selectedFiles"></div>
+
+<script>
+function displaySelectedFiles() {
+  var selectedFiles = document.getElementById('file').files;
+  var filesList = document.getElementById('selectedFiles');
+  filesList.innerHTML = '';
+  for (var i = 0; i < selectedFiles.length; i++) {
+    filesList.innerHTML += '<p>' + selectedFiles[i].name + '</p>';
+  }
+}
+</script>
+
+</body>
+</html>
