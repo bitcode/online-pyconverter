@@ -10,9 +10,10 @@ app = Flask(__name__)
 def convert_heic_to_jpeg(heic_path, jpeg_path):
     try:
         heif_file = pyheif.read(heic_path)
+        heif_file.ignore_transformations = True
         image = Image.frombytes(
-            heif_file.mode, 
-            heif_file.size, 
+            heif_file.mode,
+            heif_file.size,
             heif_file.data,
             "raw",
             heif_file.mode,
